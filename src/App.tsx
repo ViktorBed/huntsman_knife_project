@@ -1,14 +1,18 @@
 import React from 'react';
-import './App.css';
+
+import "./styles.css"
 import {Navbar} from "./components/Navbar";
+import {Hero} from "./components/Hero";
+import {Hightlights} from "./components/Hightlights";
 
 function App() {
-  return (
-    <div>
-      <Navbar/>
-    negro
-    </div>
-  );
+    return (
+        <div>
+            <Navbar/>
+            <Hero/>
+            <Hightlights/>
+        </div>
+    );
 }
 
 export default App;

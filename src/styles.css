@@ -1,0 +1,53 @@
+header{
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+header nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.navigation{
+    display: flex;
+    gap: 3rem;
+}
+.navigation nav{
+    color: var(--nav-text);
+    font-size: 0.875rem;
+}
+.hero h1{
+    text-align: center;
+    color: var(--nav-text);
+    font-size: 1.875rem;
+}
+.first_video{
+    width: 83.333333%;
+}
+.hero{
+    height: 94vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+.hero button{
+    border-radius: 1.5rem;
+    background-color:var(--blue);
+    color: white;
+    font-size: 1.3rem;
+    padding: 0.5rem 1.5rem;
+    transition: .2s ease-in-out;
+    border: var(--blue) .1rem solid;
+    font-size: 1rem;
+}
+.hero button:hover{
+    background-color: black;;
+    color: var(--blue);
+
+}
+#hero, #cta{
+    opacity: 0;
+}
+#cta{
+    transform: translate(0px, 50px);
+}
