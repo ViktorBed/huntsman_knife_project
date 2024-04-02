@@ -22,8 +22,8 @@ export function Hero() {
     }, [])
 
     useGSAP(() => {
-        gsap.to('#hero', { opacity: 1, delay: 2 })
-        gsap.to('#cta', { opacity: 1, y: 0, delay: 2 })
+        gsap.to('#hero', {opacity: 1, delay: 2})
+        gsap.to('#cta', {opacity: 1, y: 0, delay: 2})
     }, [])
 
     return (
@@ -35,10 +35,10 @@ export function Hero() {
                 <video className="first_video" loop autoPlay muted key={videoSrc}>
                     <source src={videoSrc} type="video/mp4"/>
                 </video>
-               <div id="cta">
-                   <button>Buy</button>
-                   <p className="font-normal text-xl">From $40 to $799 range</p>
-               </div>
+                <div id="cta">
+                    <button>Buy</button>
+                    <p className="font-normal text-xl">From $40 to $799 range</p>
+                </div>
             </div>
         </>
     );

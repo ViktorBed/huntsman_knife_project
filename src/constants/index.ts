@@ -9,41 +9,43 @@
 //     yellowImg,
 // } from "../utils";
 
-// export const hightlightsSlides = [
-//     {
-//         id: 1,
-//         textLists: [
-//             "Enter A17 Pro.",
-//             "Game‑changing chip.",
-//             "Groundbreaking performance.",
-//         ],
-//         video: highlightFirstVideo,
-//         videoDuration: 4,
-//     },
-//     {
-//         id: 2,
-//         textLists: ["Titanium.", "So strong. So light. So Pro."],
-//         video: highlightSecondVideo,
-//         videoDuration: 5,
-//     },
-//     {
-//         id: 3,
-//         textLists: [
-//             "iPhone 15 Pro Max has the",
-//             "longest optical zoom in",
-//             "iPhone ever. Far out.",
-//         ],
-//         video: highlightThirdVideo,
-//         videoDuration: 2,
-//     },
-//     {
-//         id: 4,
-//         textLists: ["All-new Action button.", "What will yours do?."],
-//         video: highlightFourthVideo,
-//         videoDuration: 3.63,
-//     },
-// ];
-//
+import {HLFirst, HLForth, HLSecond, HLThird} from "../utils";
+
+export const HLSlides = [
+    {
+        id: 1,
+        textLists: [
+            "Huntsman Knife.",
+            "Versatile blade design.",
+            "Precision cutting power.",
+        ],
+        video: HLFirst,
+        videoDuration: 4,
+    },
+    {
+        id: 2,
+        textLists: ["Huntsman Knife: Titanium - Strong, Light, Pro."],
+        video: HLSecond,
+        videoDuration: 4,
+    },
+    {
+        id: 3,
+        textLists: [
+            "Crafted for the ultimate outdoorsman.",
+            "Unparalleled durability and precision.",
+            "Far beyond the ordinary.",
+        ],
+        video: HLThird,
+        videoDuration: 3,
+    },
+    {
+        id: 4,
+        textLists: ["Enhanced Action Grip. How will you unleash its potential?."],
+        video: HLForth,
+        videoDuration: 3,
+    },
+];
+
 // export const models = [
 //     {
 //         id: 1,
