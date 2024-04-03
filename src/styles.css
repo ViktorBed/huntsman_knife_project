@@ -161,10 +161,80 @@ header nav {
     display: flex;
     border-radius: 40rem;
 }
-.control-btn{
-    border-radius: 100rem;
-    background-color: #42424570;
-    padding: 1rem;
-    border: none;
+
+.model{
+    height: 100vh;
+}
+.canvas{
+    height: 1100px;
+    width: 100vw;
     display: flex;
+}
+#view1, #view2{
+    width: 90vw;
+    height: 800px;
+}
+
+.screen{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+#heading {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.screen_canvas{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1.25rem;
+    flex-direction: column;
+}
+
+.screen_canvas_cover{
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.screen_bottom{
+    margin-left: auto;
+    width: 100%;
+    margin-right: auto;
+}
+
+.screen_bottom p{
+    font-size: 0.875rem;
+    font-weight: lighter;
+    margin-bottom: 1.25rem;
+}
+
+.screen_bottom div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen_bottom div ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.mapped{
+    cursor: pointer;
+    border-radius: 100rem;
+    height: 2rem;
+    width: 2rem;
+}
+
+.screen_btn{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }

@@ -4,7 +4,6 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 
 import { HLSlides } from "../constants";
-import { pauseImg, playImg, replayImg } from "../utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,18 +16,17 @@ const VideoCarousel: React.FC = () => {
         isEnd: false,
         startPlay: false,
         videoId: 0,
-        isLastVideo: false,
         isPlaying: false,
     });
 
     const [loadedData, setLoadedData] = useState<HTMLVideoElement[]>([]);
-    const { isEnd, isLastVideo, startPlay, videoId, isPlaying } = video;
+    const { isEnd, startPlay, videoId, isPlaying } = video;
 
     useGSAP(() => {
         gsap.to("#slider", {
             transform: `translateX(${-100 * videoId}%)`,
             duration: 2,
-            ease: "power2.inOut", // show visualizer https://gsap.com/docs/v3/Eases
+            ease: "power2.inOut",
         });
 
         gsap.to("#video", {
@@ -127,15 +125,7 @@ const VideoCarousel: React.FC = () => {
     const handleProcess = (type: string, i: number) => {
         switch (type) {
             case "video-end":
-                setVideo((pre) => ({ ...pre, isEnd: true, videoId: i + 1 }));
-                break;
-
-            case "video-last":
-                setVideo((pre) => ({ ...pre, isLastVideo: true }));
-                break;
-
-            case "video-reset":
-                setVideo((pre) => ({ ...pre, videoId: 0, isLastVideo: false }));
+                setVideo((pre) => ({ ...pre, isEnd: true }));
                 break;
 
             case "pause":
@@ -143,22 +133,22 @@ const VideoCarousel: React.FC = () => {
                 break;
 
             case "play":
-                setVideo((pre) => ({ ...pre, isPlaying: true }));
+                setVideo((pre) => ({ ...pre, isPlaying: true}));
                 break;
 
             case "navigate":
-                // End the previous video before navigating
-                if (videoId !== i) {
-                    const previousVideo = videoRef.current[videoId];
-                    previousVideo.currentTime = previousVideo.duration;
-                }
-                setVideo((pre) => ({ ...pre, videoId: i }));
+                videoRef.current.forEach((video, index) => {
+                    if (index !== i && video) {
+                        video.currentTime = video.duration;
+                    }
+                });
+                setVideo((pre) => ({ ...pre, videoId: i}));
                 break;
-
             default:
                 return video;
         }
     };
+
 
 
 
@@ -219,20 +209,6 @@ const VideoCarousel: React.FC = () => {
                         </span>
                     ))}
                 </div>
-
-                <button className="control-btn">
-                    <img
-                        src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg}
-                        alt={isLastVideo ? "replay" : !isPlaying ? "play" : "pause"}
-                        onClick={
-                            isLastVideo
-                                ? () => handleProcess("video-reset", 1)
-                                : !isPlaying
-                                    ? () => handleProcess("play", 2)
-                                    : () => handleProcess("pause", 3)
-                        }
-                    />
-                </button>
             </div>
         </>
     );
