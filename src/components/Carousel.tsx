@@ -45,18 +45,16 @@ const VideoCarousel: React.FC = () => {
         });
     }, [isEnd, videoId]);
 
-    // Function to automatically navigate through the slides
+    const intervals = [4000,4500, 3000, 4000]
     const autoPlay = () => {
         if (videoId < HLSlides.length -1) {
             handleProcess("navigate", videoId + 1);
-        } else {
-            handleProcess("video-end", 0); // Go back to the first slide
         }
     };
 
     useEffect(() => {
         if (startPlay) {
-            intervalRef.current = setInterval(autoPlay, 1000); // Adjust the interval as needed
+            intervalRef.current = setInterval(autoPlay, intervals[videoId]); // Adjust the interval as needed
         }
 
         return () => {
