@@ -11,6 +11,7 @@ const VideoCarousel: React.FC = () => {
     const videoRef = useRef<HTMLVideoElement[]>([]);
     const videoSpanRef = useRef<HTMLSpanElement[]>([]);
     const videoDivRef = useRef<HTMLDivElement[]>([]);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null); // Reference for the interval
 
     const [video, setVideo] = useState({
         isEnd: false,
@@ -25,7 +26,7 @@ const VideoCarousel: React.FC = () => {
     useGSAP(() => {
         gsap.to("#slider", {
             transform: `translateX(${-100 * videoId}%)`,
-            duration: 2,
+            duration: 1.4,
             ease: "power2.inOut",
         });
 
@@ -43,6 +44,25 @@ const VideoCarousel: React.FC = () => {
             },
         });
     }, [isEnd, videoId]);
+
+    // Function to automatically navigate through the slides
+    const autoPlay = () => {
+        if (videoId < HLSlides.length -1) {
+            handleProcess("navigate", videoId + 1);
+        } else {
+            handleProcess("video-end", 0); // Go back to the first slide
+        }
+    };
+
+    useEffect(() => {
+        if (startPlay) {
+            intervalRef.current = setInterval(autoPlay, 1000); // Adjust the interval as needed
+        }
+
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+        };
+    }, [startPlay, videoId]);
 
     useEffect(() => {
         let currentProgress = 0;
@@ -119,9 +139,8 @@ const VideoCarousel: React.FC = () => {
                 startPlay && videoRef.current[videoId].play();
             }
         }
-    }, [startPlay, videoId, isPlaying, loadedData]);
+    }, [startPlay, videoId, loadedData]);
 
-    // vd id is the id for every video until id becomes number 3
     const handleProcess = (type: string, i: number) => {
         switch (type) {
             case "video-end":
@@ -133,7 +152,7 @@ const VideoCarousel: React.FC = () => {
                 break;
 
             case "play":
-                setVideo((pre) => ({ ...pre, isPlaying: true}));
+                setVideo((pre) => ({ ...pre, isPlaying: true }));
                 break;
 
             case "navigate":
@@ -142,15 +161,12 @@ const VideoCarousel: React.FC = () => {
                         video.currentTime = video.duration;
                     }
                 });
-                setVideo((pre) => ({ ...pre, videoId: i}));
+                setVideo((pre) => ({ ...pre, videoId: i }));
                 break;
             default:
                 return video;
         }
     };
-
-
-
 
     const handleLoadedMetaData = (i: number, e: React.SyntheticEvent<HTMLVideoElement, Event>) => setLoadedData((pre) => [...pre, e.currentTarget]);
 

@@ -65,7 +65,7 @@ header nav {
 }
 
 #title {
-    margin: 0  0 0 24.5rem;
+    margin: 0 0 0 24.5rem;
     font-size: 3.75rem;
     opacity: 0;
     position: relative;
@@ -84,7 +84,7 @@ header nav {
     padding: 0 24.5rem;
 }
 
-.slide{
+.slide {
     display: flex;
     flex-direction: row;
     gap: 2rem;
@@ -114,14 +114,15 @@ header nav {
     color: #FFFFFF;
 }
 
-.cover{
+.cover {
     margin-bottom: 3rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 80vw;
 }
-.link{
+
+.link {
     padding: 0;
     display: flex;
     gap: 1rem;
@@ -130,15 +131,17 @@ header nav {
     position: relative;
     transform: translate(0px, 120px);
 }
-.slide_buttons{
+
+.slide_buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2.5rem;
+    margin: 2.5rem 0;
     position: relative;
     gap: 1rem;
 }
-.slide_buttons > div{
+
+.slide_buttons > div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -146,7 +149,8 @@ header nav {
     background-color: #42424570;
     border-radius: 40rem;
 }
-.slide_buttons div > span{
+
+.slide_buttons div > span {
     width: 0.75rem;
     height: 0.75rem;
     --tw-bg-opacity: 1;
@@ -154,7 +158,8 @@ header nav {
     border-radius: 40rem;
     margin: 0 0.5rem;
 }
-.slide_circles_top{
+
+.slide_circles_top {
     background-color: rgb(254, 254, 254);
     height: 100%;
     z-index: 100;
@@ -162,20 +167,32 @@ header nav {
     border-radius: 40rem;
 }
 
-.model{
+.model {
     height: 100vh;
 }
-.canvas{
+
+.canvas {
     height: 1100px;
     width: 100vw;
     display: flex;
 }
-#view1, #view2{
+
+#view1, #view2 {
     width: 90vw;
-    height: 800px;
+    height: 500px;
+    padding: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.screen{
+#view1 div, #view2 div {
+    position: unset!important;
+    transform: translate3d(0px, 0px, 0px) scale(1)!important;
+    transform-origin: 0!important;
+}
+
+.screen {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -183,58 +200,106 @@ header nav {
 }
 
 #heading {
-    font-size: 2rem;
-    font-weight: bold;
+    color: var(--nav-text);
     text-align: center;
+    font-size: 3.75rem;
+    opacity: 0;
+    position: relative;
+    transition: 2s ease;
+    transform: translate(0px, -170px);
+    line-height: 1;
+    font-weight: 500;
 }
 
-.screen_canvas{
+.screen_canvas {
     display: flex;
     align-items: flex-start;
     margin-top: 1.25rem;
     flex-direction: column;
 }
 
-.screen_canvas_cover{
+.screen_canvas_cover {
     overflow: hidden;
     display: flex;
     justify-content: flex-start;
 
 }
 
-.screen_bottom{
+.screen_bottom {
     margin-left: auto;
     width: 100%;
     margin-right: auto;
 }
 
-.screen_bottom p{
-    font-size: 0.875rem;
+.screen_bottom p {
+    color: var(--nav-text);
+    font-size: 1.5rem;
     font-weight: lighter;
     margin-bottom: 1.25rem;
+    display: flex;
+    justify-content: center;
 }
 
-.screen_bottom div{
+.screen_bottom div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.screen_bottom div ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+    background-color: #42424570;
+    border-radius: 40rem;
+}
+
+.mapped {
+    cursor: pointer;
+    border-radius: 100rem;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.screen_btn {
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: #42424570;
+    border-radius: 40rem;
+}
+
+.screen_btn_size:hover,
+.screen_btn_size:focus {
+    outline: none;
+
+
+}
+
+.screen_btn_size {
+    font-weight: 700;
+    border-radius: 100rem;
+    height: 3rem;
+    transition: 0.3s ease-in-out;
+    width: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.screen_bottom div ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.loading {
+    color: var(--nav-text);
+    font-size: 1.875rem;
     display: flex;
-}
-.mapped{
-    cursor: pointer;
-    border-radius: 100rem;
-    height: 2rem;
-    width: 2rem;
-}
-
-.screen_btn{
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }

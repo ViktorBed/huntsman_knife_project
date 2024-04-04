@@ -21,8 +21,8 @@ const Lights = () => {
                     />
                     <Lightformer
                         form="rect"
-                        intensity={10}
-                        position={[10, 0, 1]}
+                        intensity={1}
+                        position={[2, 0, 1]}
                         scale={10}
                         rotation-y={Math.PI / 2}
                     />
@@ -32,8 +32,8 @@ const Lights = () => {
                 position={[-2, 10, 5]}
                 angle={0.15}
                 penumbra={1}
-                decay={0}
-                intensity={Math.PI * 0.2}
+                decay={0} 
+                intensity={Math.PI * 0.2} 
                 color={"#f8f9fa"}
             />
             <spotLight
