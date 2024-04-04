@@ -11,7 +11,7 @@ const VideoCarousel: React.FC = () => {
     const videoRef = useRef<HTMLVideoElement[]>([]);
     const videoSpanRef = useRef<HTMLSpanElement[]>([]);
     const videoDivRef = useRef<HTMLDivElement[]>([]);
-    const intervalRef = useRef<NodeJS.Timeout | null>(null); // Reference for the interval
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const [video, setVideo] = useState({
         isEnd: false,
@@ -45,16 +45,16 @@ const VideoCarousel: React.FC = () => {
         });
     }, [isEnd, videoId]);
 
-    const intervals = [4000,4500, 3000, 4000]
+    const intervals = [4000, 4500, 3000, 4000];
     const autoPlay = () => {
-        if (videoId < HLSlides.length -1) {
+        if (videoId < HLSlides.length - 1) {
             handleProcess("navigate", videoId + 1);
         }
     };
 
     useEffect(() => {
         if (startPlay) {
-            intervalRef.current = setInterval(autoPlay, intervals[videoId]); // Adjust the interval as needed
+            intervalRef.current = setInterval(autoPlay, intervals[videoId]);
         }
 
         return () => {
@@ -67,34 +67,28 @@ const VideoCarousel: React.FC = () => {
         let span = videoSpanRef.current;
 
         if (span[videoId]) {
-            // animation to move the indicator
             let anim = gsap.to(span[videoId], {
                 onUpdate: () => {
-                    // get the progress of the video
                     const progress = Math.ceil(anim.progress() * 100);
 
                     if (progress !== currentProgress) {
                         currentProgress = progress;
 
-                        // set the width of the progress bar
                         gsap.to(videoDivRef.current[videoId], {
                             width:
                                 window.innerWidth < 760
-                                    ? "10vw" // mobile
+                                    ? "10vw"
                                     : window.innerWidth < 1200
-                                        ? "10vw" // tablet
-                                        : "4vw", // laptop
+                                        ? "10vw"
+                                        : "4vw",
                         });
 
-                        // set the background color of the progress bar
                         gsap.to(span[videoId], {
                             width: `${currentProgress}%`,
                             backgroundColor: "white",
                         });
                     }
                 },
-
-                // when the video is ended, replace the progress bar with the indicator and change the background color
                 onComplete: () => {
                     if (isPlaying) {
                         gsap.to(videoDivRef.current[videoId], {
@@ -111,7 +105,6 @@ const VideoCarousel: React.FC = () => {
                 anim.restart();
             }
 
-            // update the progress bar
             const animUpdate = () => {
                 anim.progress(
                     videoRef.current[videoId].currentTime /
@@ -120,10 +113,8 @@ const VideoCarousel: React.FC = () => {
             };
 
             if (isPlaying) {
-                // ticker to update the progress bar
                 gsap.ticker.add(animUpdate);
             } else {
-                // remove the ticker when the video is paused (progress bar is stopped)
                 gsap.ticker.remove(animUpdate);
             }
         }
@@ -144,15 +135,12 @@ const VideoCarousel: React.FC = () => {
             case "video-end":
                 setVideo((pre) => ({ ...pre, isEnd: true }));
                 break;
-
             case "pause":
                 setVideo((pre) => ({ ...pre, isPlaying: false }));
                 break;
-
             case "play":
                 setVideo((pre) => ({ ...pre, isPlaying: true }));
                 break;
-
             case "navigate":
                 videoRef.current.forEach((video, index) => {
                     if (index !== i && video) {

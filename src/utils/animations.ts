@@ -29,7 +29,6 @@ export const animateWithGsap = (target: any, animationProps: AnimationProps, scr
 
 export const animateWithGsapTimeline = (timeline: gsap.core.Timeline, rotationRef: RefObject<any>, rotationState: number, firstTarget: string, secondTarget: string, animationProps: AnimationProps) => {
     timeline.to(rotationRef.current.rotation, {
-        y: rotationState,
         duration: 1,
         ease: 'power2.inOut'
     });
