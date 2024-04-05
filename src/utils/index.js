@@ -17,6 +17,11 @@ import white from "../assets/images/white.jpg"
 import exploremv from "../assets/videos/explore.mp4";
 import explore1 from "../assets/images/explore1.jpg";
 import explore2 from "../assets/images/explore2.jpg";
+
+import framemv from "../assets/videos/frame.mp4";
+import chip from "../assets/images/chip.png";
+import frame from "../assets/images/frame.png";
+
 export const logoImg = logo;
 export const smallVideo = videoS;
 export const bigVideo = videoB;
@@ -36,3 +41,7 @@ export const whiteImg = white
 export const exploreVideo = exploremv;
 export const explore1Img = explore1;
 export const explore2Img = explore2;
+
+export const frameVideo = framemv;
+export const chipImg = chip;
+export const frameImg = frame;

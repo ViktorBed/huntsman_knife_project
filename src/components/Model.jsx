@@ -10,7 +10,7 @@ import { View } from "@react-three/drei";
 import { models, sizes } from "../constants";
 import { animateWithGsapTimeline } from "../utils/animations";
 
-const Model = () => {
+export function Model () {
   const [size, setSize] = useState('small');
   const [model, setModel] = useState({
     title: 'Huntsman Knife ',
@@ -116,5 +116,3 @@ const Model = () => {
       </section>
   );
 }
-
-export default Model;

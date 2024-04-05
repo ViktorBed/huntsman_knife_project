@@ -5,7 +5,7 @@ import {animateWithGsap} from '../utils/animations';
 import gsap from 'gsap';
 import {explore1Img, explore2Img, exploreVideo} from "../utils";
 
-const Features: React.FC = () => {
+export function Features () {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     useGSAP(() => {
@@ -91,5 +91,3 @@ const Features: React.FC = () => {
         </section>
     )
 }
-
-export default Features;

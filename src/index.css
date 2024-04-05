@@ -1,9 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
 :root {
     box-sizing: border-box;
     --nav-text: rgb(134 134 139);
     --blue: rgb(41 151 255);
     --gray-bg: rgb(16 16 16);
 }
+
+::-webkit-scrollbar {
+    background: var(--gray-bg);
+    width: .5vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--nav-text);
+}
+
 
 body {
     margin: 0;
