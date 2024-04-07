@@ -1,25 +1,11 @@
 import gsap from 'gsap';
-
-import {useEffect, useState} from "react";
-import {bigVideo, smallVideo} from "../utils";
 import {useGSAP} from "@gsap/react";
 
-export function Hero() {
-    const [videoSrc, setVideoSrc] = useState(window.innerWidth < 760 ? smallVideo : bigVideo)
-    const handleVideoSrcSet = () => {
-        if (window.innerWidth < 760) {
-            setVideoSrc(smallVideo)
-        } else {
-            setVideoSrc(bigVideo)
-        }
-    }
-    useEffect(() => {
-        window.addEventListener('resize', handleVideoSrcSet);
+import {bigVideo} from "../utils";
+import {ScrollProps} from "../constants";
 
-        return () => {
-            window.removeEventListener('resize', handleVideoSrcSet)
-        }
-    }, [])
+
+export function Hero({ handleClick }: ScrollProps) {
 
     useGSAP(() => {
         gsap.to('#hero', {opacity: 1, delay: 2})
@@ -32,12 +18,12 @@ export function Hero() {
                 <h1 id="hero">
                     Huntsman Knife
                 </h1>
-                <video className="first_video" loop autoPlay muted key={videoSrc}>
-                    <source src={videoSrc} type="video/mp4"/>
+                <video className="first_video" loop autoPlay muted key={bigVideo}>
+                    <source src={bigVideo} type="video/mp4"/>
                 </video>
                 <div id="cta">
-                    <button>Buy</button>
-                    <p className="font-normal text-xl">From $40 to $799 range</p>
+                    <button onClick={() => handleClick('heading')}>Buy</button>
+                    <p>From $40 to $799 range</p>
                 </div>
             </div>
         </>

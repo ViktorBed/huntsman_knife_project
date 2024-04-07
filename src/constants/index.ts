@@ -52,7 +52,7 @@ export const models = [
     {
         id: 2,
         title: "Huntsman Knife Blue Steel",
-        color: ["#0b1836"],
+        color: ["#183983"],
         img: blueImg,
     },
     {
@@ -69,8 +69,8 @@ export const models = [
     },
 ];
 export const sizes = [
-    { label: '11', value: "small" },
-    { label: '15', value: "large" },
+    {label: '11', value: "small"},
+    {label: '15', value: "large"},
 ];
 
 export const footerLinks = [
@@ -80,3 +80,7 @@ export const footerLinks = [
     "Legal",
     "Site Map",
 ];
+
+export interface ScrollProps {
+    handleClick: (component: any) => void;
+}

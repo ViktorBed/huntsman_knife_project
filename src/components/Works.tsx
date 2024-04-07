@@ -1,7 +1,8 @@
-import React, {useRef, useEffect} from 'react';
-import {chipImg, frameImg, frameVideo} from '../utils';
+import React, {useRef} from 'react';
 import {useGSAP} from '@gsap/react';
 import gsap from 'gsap';
+
+import {chipImg, frameImg, frameVideo} from '../utils';
 import {animateWithGsap} from '../utils/animations';
 
 export function Works() {
@@ -43,23 +44,16 @@ export function Works() {
 
                 <div className="footer_container">
                     <div>
-                        <div className="footer_img">
-                            <img
-                                src={frameImg}
-                                alt="frame"
-                            />
-                        </div>
                         <div className="footer_video">
                             <video playsInline preload="none" muted loop autoPlay ref={videoRef}>
-                                <source src={frameVideo} type="video/mp4" />
+                                <source src={frameVideo} type="video/mp4"/>
                             </video>
                         </div>
                     </div>
-                    <p>
+                    <a href="https://www.youtube.com/watch?v=7pTECu-BZvI">
                         KNIFY - Huntsman - Damascus
-                    </p>
+                    </a>
                 </div>
-
                 <div className="footer_inf">
                     <div>
                         <p className="g_fadeIn">

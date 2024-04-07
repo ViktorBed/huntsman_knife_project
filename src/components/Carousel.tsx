@@ -1,9 +1,9 @@
 import gsap from "gsap";
-import React, { useEffect, useRef, useState } from "react";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
+import React, {useEffect, useRef, useState} from "react";
+import {useGSAP} from "@gsap/react";
+import {ScrollTrigger} from "gsap/all";
 
-import { HLSlides } from "../constants";
+import {HLSlides} from "../constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +21,7 @@ const VideoCarousel: React.FC = () => {
     });
 
     const [loadedData, setLoadedData] = useState<HTMLVideoElement[]>([]);
-    const { isEnd, startPlay, videoId, isPlaying } = video;
+    const {isEnd, startPlay, videoId, isPlaying} = video;
 
     useGSAP(() => {
         gsap.to("#slider", {
@@ -133,13 +133,13 @@ const VideoCarousel: React.FC = () => {
     const handleProcess = (type: string, i: number) => {
         switch (type) {
             case "video-end":
-                setVideo((pre) => ({ ...pre, isEnd: true }));
+                setVideo((pre) => ({...pre, isEnd: true}));
                 break;
             case "pause":
-                setVideo((pre) => ({ ...pre, isPlaying: false }));
+                setVideo((pre) => ({...pre, isPlaying: false}));
                 break;
             case "play":
-                setVideo((pre) => ({ ...pre, isPlaying: true }));
+                setVideo((pre) => ({...pre, isPlaying: true}));
                 break;
             case "navigate":
                 videoRef.current.forEach((video, index) => {
@@ -147,7 +147,7 @@ const VideoCarousel: React.FC = () => {
                         video.currentTime = video.duration;
                     }
                 });
-                setVideo((pre) => ({ ...pre, videoId: i }));
+                setVideo((pre) => ({...pre, videoId: i}));
                 break;
             default:
                 return video;
@@ -160,9 +160,9 @@ const VideoCarousel: React.FC = () => {
         <>
             <div className="slider">
                 {HLSlides.map((list, i) => (
-                    <div key={list.id} id="slider" className="sm:pr-20 pr-10">
-                        <div className="video-carousel_container">
-                            <div className="scroll">
+                    <div key={list.id} id="slider">
+                        <div >
+                            <div>
                                 <video
                                     id="video"
                                     playsInline={true}
@@ -176,17 +176,17 @@ const VideoCarousel: React.FC = () => {
                                             : handleProcess("video-last", i)
                                     }
                                     onPlay={() =>
-                                        setVideo((pre) => ({ ...pre, isPlaying: true }))
+                                        setVideo((pre) => ({...pre, isPlaying: true}))
                                     }
                                     onLoadedMetadata={(e) => handleLoadedMetaData(i, e)}
                                 >
-                                    <source src={list.video} type="video/mp4" />
+                                    <source src={list.video} type="video/mp4"/>
                                 </video>
                             </div>
 
                             <div className="relative">
                                 {list.textLists.map((text, i) => (
-                                    <p key={i} className="relative_text">
+                                    <p key={i}>
                                         {text}
                                     </p>
                                 ))}

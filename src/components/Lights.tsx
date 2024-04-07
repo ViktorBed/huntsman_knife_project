@@ -1,4 +1,4 @@
-import { Environment, Lightformer } from "@react-three/drei";
+import {Environment, Lightformer} from "@react-three/drei";
 
 const Lights = () => {
     return (
@@ -32,8 +32,8 @@ const Lights = () => {
                 position={[-2, 10, 5]}
                 angle={0.15}
                 penumbra={1}
-                decay={0} 
-                intensity={Math.PI * 0.2} 
+                decay={0}
+                intensity={Math.PI * 0.2}
                 color={"#f8f9fa"}
             />
             <spotLight

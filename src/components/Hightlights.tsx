@@ -1,13 +1,14 @@
 import gsap from "gsap";
 import {useGSAP} from "@gsap/react";
 import React from "react";
+
 import Carousel from "./Carousel";
 import {rightImg, watchImg} from "../utils";
 
 export function Hightlights() {
     useGSAP(() => {
-        gsap.to('#title', { opacity: 1, y: 0, duration: 1 })
-        gsap.to('.link', { opacity: 1, y: 0, duration: 1, stagger: 0.25 })
+        gsap.to('#title', {opacity: 1, y: 0, duration: 1})
+        gsap.to('.link', {opacity: 1, y: 0, duration: 1, stagger: 0.25})
     }, [])
 
     return (
@@ -17,19 +18,18 @@ export function Hightlights() {
                     <div className="cover">
                         <h1 id="title">Get the highlights.</h1>
                         <div className="slide">
-                            <p className="link">
+                            <a href="https://www.youtube.com/watch?v=n_-y4L-PGCA" className="link">
                                 Watch the film
                                 <img src={watchImg} alt="watch"/>
-                            </p>
-                            <p className="link">
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=dtbzrVRWxwA" className="link">
                                 Watch the event
                                 <img src={rightImg} alt="right"/>
-                            </p>
+                            </a>
                         </div>
                     </div>
                 </div>
-
-                <Carousel />
+                <Carousel/>
             </div>
         </section>
     )

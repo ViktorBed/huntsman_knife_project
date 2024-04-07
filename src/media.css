@@ -1,0 +1,42 @@
+@media screen and (max-width: 1500px) {
+    .cover {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 2rem;
+    }
+
+    #title {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .slider {
+        padding: 0 5rem;
+    }
+
+    #title, #heading,#features_title,.works_text h2{
+        font-size: 2rem;
+    }
+
+    .relative_text {
+        font-size: 1rem;
+    }
+
+    #view1, #view2 {
+        width: 100vw;
+    }
+    .features_block div h2{
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+    .g_text{
+        font-size: 0.75rem;
+        line-height: 1rem
+    }
+    .g_fadeIn{
+        font-size: 0.75rem;
+        line-height: 1.5rem
+    }
+}

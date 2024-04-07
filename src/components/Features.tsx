@@ -1,11 +1,11 @@
 import {useGSAP} from '@gsap/react'
 import React, {useRef} from 'react'
-import {animateWithGsap} from '../utils/animations';
-
 import gsap from 'gsap';
+
+import {animateWithGsap} from '../utils/animations';
 import {explore1Img, explore2Img, exploreVideo} from "../utils";
 
-export function Features () {
+export function Features() {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     useGSAP(() => {
@@ -22,7 +22,7 @@ export function Features () {
             }
         })
 
-        animateWithGsap('#features_title', {y: 0, opacity: 1}, {}); // Add empty options object as the third argument
+        animateWithGsap('#features_title', {y: 0, opacity: 1}, {});
         animateWithGsap(
             '.g_grow',
             {scale: 1.5, opacity: 1, ease: 'power1'},
@@ -30,8 +30,8 @@ export function Features () {
         );
         animateWithGsap(
             '.g_text',
-            {y: 0, opacity: 1, ease: 'power2.inOut', duration: 1}, // Add duration property
-            {} // Add empty options object as the third argument
+            {y: 0, opacity: 1, ease: 'power2.inOut', duration: 1},
+            {}
         )
     }, []);
 
@@ -47,32 +47,27 @@ export function Features () {
                         <h2>Huntsman Knife.</h2>
                         <h2>Steel Forged Weapon.</h2>
                     </div>
-
                     <div className="features_container">
                         <div className="features_container_div">
                             <video playsInline id="exploreVideo" preload="none" muted autoPlay ref={videoRef}>
                                 <source src={exploreVideo} type="video/mp4"/>
                             </video>
                         </div>
-
                         <div className="feature_img">
                             <div>
                                 <div>
-                                    <img src={explore1Img} className="g_grow" alt="titanium"/>
+                                    <img src={explore1Img} className="g_grow" alt="Knife"/>
                                 </div>
                                 <div>
-                                    <img src={explore2Img} className="g_grow" alt="titanium 2"/>
+                                    <img src={explore2Img} className="g_grow" alt="Knife 2"/>
                                 </div>
                             </div>
-
                             <div className="feature_text">
                                 <div>
                                     <p className="g_text">
-
                                         Its compact yet robust build makes
                                         it a reliable companion for adventurers seeking a tool that can withstand the
                                         rigors of the wilderness.
-
                                     </p>
                                 </div>
 

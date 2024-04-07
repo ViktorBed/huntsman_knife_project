@@ -1,13 +1,14 @@
 import React from 'react';
-import { footerLinks } from '../constants';
 
-export function Footer () {
+import {footerLinks} from '../constants';
+
+export function Footer() {
     return (
         <footer className="footer">
             <div>
                 <div className="footer_cover"/>
                 <div className="footer_nav">
-                    <p>Copright @ 2024 ViktorBed. All rights reserved.</p>
+                    <p>Copyright @ 2024 ViktorBed. All rights reserved.</p>
                     <div>
                         {footerLinks.map((link, i) => (
                             <p key={link} className="link">
