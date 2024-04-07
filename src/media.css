@@ -23,6 +23,12 @@
     .relative_text {
         font-size: 1rem;
     }
+    .relative p{
+        font-size: .75rem;
+    }
+    .relative{
+        padding: .5rem;
+    }
 
     #view1, #view2 {
         width: 100vw;

@@ -2,6 +2,7 @@ import React from 'react';
 
 import "./styles.css"
 import "./media.css"
+import "./index.css"
 import {Navbar} from "./components/Navbar";
 import {Hero} from "./components/Hero";
 import {Hightlights} from "./components/Hightlights";

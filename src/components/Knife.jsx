@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import React, {useEffect, useState} from "react";
-import {useGLTF, useTexture} from "@react-three/drei";
+import {OrbitControls, useGLTF, useTexture} from "@react-three/drei";
 
 function Model(props) {
     const {nodes, materials} = useGLTF("/models/scene.glb");
@@ -36,15 +36,24 @@ function Model(props) {
     const modelScale = windowWidth < 760 ? 0.0002 : 0.0004;
 
     return (
-        <group {...props} dispose={null}>
-            <mesh
-                geometry={nodes['military_knife_Material_#90_0'].geometry}
-                material={materials.Material_90}
-                position={[0, 0, 0]}
-                rotation={[0, 14, 8]}
-                scale={[modelScale, modelScale, modelScale]}
+
+        <>
+            <OrbitControls
+                enableZoom={false}
+                enablePan={false}
+                rotateSpeed={0.4}
             />
-        </group>
+
+            <group {...props} dispose={null}>
+                <mesh
+                    geometry={nodes['military_knife_Material_#90_0'].geometry}
+                    material={materials.Material_90}
+                    position={[0, 0, 0]}
+                    rotation={[0, 14, 8]}
+                    scale={[modelScale, modelScale, modelScale]}
+                />
+            </group>
+        </>
     );
 }
 

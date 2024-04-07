@@ -508,11 +508,9 @@ header nav {
 .footer_video {
     pointer-events: none;
     width: 73%;
-
 }
 
 .footer_video video {
-    border-radius: 4rem;
     width: 100%;
     height: 100%;
 }
